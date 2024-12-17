@@ -1,42 +1,60 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Filiere {
-    private String code;
+public class Filiere implements Entity {
+    private Long id;
+    private String name;
+    private String acronym;
+    List<Module> modules = new ArrayList<>();
 
-    public Filiere(String code, String nom, List<Module> modules) {
-        this.code = code;
-        this.nom = nom;
-        this.modules = modules;
+    public Filiere(String name, String acronym) {
+        super();
+        this.name = name;
+        this.acronym = acronym;
     }
 
-    public String getCode() {
-        return code;
+    public Filiere(Long id, String name, String acronym) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.acronym = acronym;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public String getAcronym() {
+        return acronym;
     }
 
-    public String getNom() {
-        return nom;
+    public void setAcronym(String acronym) {
+        this.acronym = acronym;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    @Override
+    public Long getId() {
+        return id;
+    }
+    @Override
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public List<Module> getModules() {
-        return modules;
+    public String getName() {
+        return name;
     }
 
-    public void setModules(List<Module> modules) {
-        this.modules = modules;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    private String nom;
-    private List<Module> modules;
+    public void addModule(Module module) {
+        modules.add(module);
+        module.setFiliere(this);
+    }
 
-    // Constructeurs, getters et setters
+    @Override
+    public String toString() {
+        return "Filiere [id=" + id + ", name=" + name + ", acronym=" + acronym + "]";
+    }
+
 }

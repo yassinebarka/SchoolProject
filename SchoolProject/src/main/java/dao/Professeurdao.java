@@ -1,6 +1,6 @@
 package dao;
 
-import model.Professeur;
+import model.Professor;
 
-public interface Professeurdao extends Dao<Professeur> {
+public interface Professeurdao extends Dao<Professor> {
 }

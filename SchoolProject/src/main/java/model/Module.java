@@ -2,32 +2,27 @@ package model;
 
 import java.util.List;
 
-public class Module {
-    private String code;
-    private String nom;
+public class Module implements Entity {
+    private Long id;
+    private String name;
+    // Many-To-One
+    private Filiere filiere;
+    private Semester semester;
 
-    public Module(String code, String nom, Filiere filiere, String semestre, List<ElementModule> elementsModules) {
-        this.code = code;
-        this.nom = nom;
-        this.filiere = filiere;
-        this.semestre = semestre;
-        this.elementsModules = elementsModules;
+    public Long getId() {
+        return id;
     }
 
-    public String getCode() {
-        return code;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public String getName() {
+        return name;
     }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Filiere getFiliere() {
@@ -38,25 +33,37 @@ public class Module {
         this.filiere = filiere;
     }
 
-    public String getSemestre() {
-        return semestre;
+    public Semester getSemester() {
+        return semester;
     }
 
-    public void setSemestre(String semestre) {
-        this.semestre = semestre;
+    public void setSemester(Semester semester) {
+        this.semester = semester;
     }
 
-    public List<ElementModule> getElementsModules() {
-        return elementsModules;
+    @Override
+    public String toString() {
+        return "Module [id=" + id + ", name=" + name + ", filiere=" + filiere
+                + ", semester=" + semester + "]";
     }
 
-    public void setElementsModules(List<ElementModule> elementsModules) {
-        this.elementsModules = elementsModules;
+    public Module(Long id, String name, Filiere filiere, Semester semester) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.filiere = filiere;
+        this.semester = semester;
     }
 
-    private Filiere filiere;
-    private String semestre; // S1, S2, S3, S4, S5
-    private List<ElementModule> elementsModules;
+    public Module(String name, Filiere filiere, Semester semester) {
+        super();
+        this.name = name;
+        this.filiere = filiere;
+        this.semester = semester;
+    }
 
-    // Constructeurs, getters et setters
+    public Module() {
+
+    }
+
 }
