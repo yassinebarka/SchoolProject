@@ -1,0 +1,25 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+/out/
+
+# Maven
+target/
+
+# Logs
+*.log
+
+# Ignore les fichiers système
+.DS_Store
+Thumbs.db
+
+# Éditeur basé sur les requêtes HTTP
+/httpRequests/
+
+# Stockage local des sources de données
+/dataSources/
+/dataSources.local.xml
+
+# Autres fichiers temporaires ou inutiles
+/shelf/
+/workspace.xml
